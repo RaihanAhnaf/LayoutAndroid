@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.text.TextUtils;
+import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
     Button btnlogin;
     EditText username, password;
+    TextView text3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class Login extends AppCompatActivity {
         btnlogin =(Button) findViewById(R.id.btnlogin);
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        text3 = (TextView) findViewById(R.id.text3);
 
         btnlogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -40,6 +43,19 @@ public class Login extends AppCompatActivity {
                         b = new Bundle();
                 b.putString("parse_uname", uname);
                 b.putString("parse_pass", pass);
+                ((Intent) i).putExtras(b);
+                startActivity(i);
+            }
+        });
+
+        text3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = null;
+                i = new
+                        Intent(Login.this, Register.class);
+                Bundle
+                        b = new Bundle();
                 ((Intent) i).putExtras(b);
                 startActivity(i);
             }
